@@ -1,0 +1,26 @@
+[
+    {
+        "id": "REG-001",
+        "category": "Inclusion Criteria",
+        "rule": "Protocols must explicitly define age ranges for participants.",
+        "risk_level": "High"
+    },
+    {
+        "id": "REG-002",
+        "category": "Informed Consent",
+        "rule": "The informed consent process must be detailed and aligned with FDA 21 CFR Part 50.",
+        "risk_level": "Critical"
+    },
+    {
+        "id": "REG-003",
+        "category": "Statistical Analysis",
+        "rule": "Sample size calculations must be justified based on power analysis.",
+        "risk_level": "Medium"
+    },
+    {
+        "id": "REG-004",
+        "category": "Safety Monitoring",
+        "rule": "Adverse event reporting timelines must be clearly specified.",
+        "risk_level": "High"
+    }
+]
