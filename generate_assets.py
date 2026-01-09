@@ -65,22 +65,36 @@ sequenceDiagram
             print(f"Exception for {name}: {e}")
 
 def create_animated_title():
-    print("Creating animated title GIF...")
-    charts = ["compliance-health.png", "risk-correlation.png", "latency-stats.png"]
+    print("Creating comprehensive animated title GIF...")
     frames = []
     
+    # 1. Add Terminal frames
+    terminal_dir = "images/terminal-frames"
+    if os.path.exists(terminal_dir):
+        frame_files = sorted([f for f in os.listdir(terminal_dir) if f.endswith(".png")])
+        for f in frame_files:
+            img = Image.open(os.path.join(terminal_dir, f))
+            frames.append(img.convert("RGB"))
+            # Hold the last terminal frame longer if it's the final output
+            if f == frame_files[-1]:
+                for _ in range(2): frames.append(img.convert("RGB"))
+
+    # 2. Add Statistical Chart frames
+    charts = ["compliance-health.png", "risk-correlation.png", "latency-stats.png"]
     for chart in charts:
         path = os.path.join("images", chart)
         if os.path.exists(path):
-            img = Image.open(path)
-            frames.append(img.convert("RGB"))
+            img = Image.open(path).resize((800, 400)) # Ensure consistent size
+            # Add chart frame multiple times to stay on screen longer
+            for _ in range(3):
+                frames.append(img.convert("RGB"))
     
     if frames:
         frames[0].save(
             "images/title-animation.gif",
             save_all=True,
             append_images=frames[1:],
-            duration=1500,
+            duration=600, # Faster transitions for terminal, longer for charts due to duplication
             loop=0
         )
         print("Saved images/title-animation.gif")
