@@ -87,15 +87,18 @@ def create_animated_title():
                 frames.append(img.convert("RGB"))
     
     if frames:
-        print(f"Total frames: {len(frames)}")
+        print(f"Total frames gathered: {len(frames)}")
+        # Verify first frame is terminal
+        print(f"First frame mode: {frames[0].mode}, Size: {frames[0].size}")
+        
         frames[0].save(
-            "images/title-animation.gif",
+            "images/title-animation-v2.gif",
             save_all=True,
             append_images=frames[1:],
-            duration=100, # 100ms per frame = 10fps
+            duration=100, # 100ms
             loop=0
         )
-        print("Saved images/title-animation.gif")
+        print("Saved images/title-animation-v2.gif")
     else:
         print("No frames found for GIF creation.")
 
