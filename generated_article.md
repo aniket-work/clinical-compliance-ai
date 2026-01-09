@@ -1,7 +1,7 @@
 # Autonomous Clinical Trial Compliance: Solving Protocol Bottlenecks with AI Agents
 ### How I Built a Multi-Agent Intelligence System to Automate Regulatory Compliance and Risk Scoring in Clinical Healthcare
 
-![Title Animation](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v2.gif)
+![Title Animation](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v3.gif)
 
 ## TL;DR
 I observed that clinical trial protocol compliance is one of the most tedious and error-prone bottlenecks in healthcare today. In my opinion, the manual cross-referencing of protocols against FDA and EMA regulations is a problem begging for an agentic solution. I built this PoC to demonstrate how three specialized AI agents (Researcher, Analyzer, Synthesizer) can collaborate to identify regulatory gaps, generate risk scores, and provide statistical insights. The result is a system that turns weeks of manual auditing into seconds of automated intelligence.

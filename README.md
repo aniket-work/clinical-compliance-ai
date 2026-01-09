@@ -1,6 +1,6 @@
 # Autonomous Clinical Trial Protocol Compliance Intelligence
 
-![Title Animation](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v2.gif)
+![Title Animation](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v3.gif)
 
 ## Overview
 This repository contains an experimental Proof of Concept (PoC) for an **Autonomous Clinical Trial Compliance Intelligence** system. I built this to explore how a multi-agent AI architecture can solve the massive bottleneck of manual regulatory compliance checks in the healthcare industry.

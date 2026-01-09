@@ -27,7 +27,7 @@ def publish_article(article_path):
             "body_markdown": content,
             "published": True,
             "tags": ["healthcare", "ai", "python", "automation"],
-            "main_image": "https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v2.gif"
+            "main_image": "https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation-v3.gif"
         }
     }
 
