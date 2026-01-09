@@ -1,59 +1,51 @@
+"""
+publish_to_devto.py - Automates publication to Dev.to via API.
+"""
 import requests
-import json
 import os
+import json
 from dotenv import load_dotenv
 
-# Load API Key from .env in parent directory
-load_dotenv("../.env")
+# Load API key from .env
+load_dotenv()
 DEVTO_API_KEY = os.getenv("DEVTO_API_KEY")
 
-def publish_article():
+def publish_article(article_path):
     if not DEVTO_API_KEY:
-        print("Error: DEVTO_API_KEY not found in .env")
+        print("Error: DEVTO_API_KEY not found in environment.")
         return
 
-    # Read the article content
-    with open("generated_article.md", "r") as f:
+    with open(article_path, 'r') as f:
         content = f.read()
 
-    # Split frontmatter and body
-    parts = content.split("---", 2)
-    if len(parts) < 3:
-        print("Error: Invalid article format (missing frontmatter)")
-        return
+    # Extract title and tags if needed, or send as is
+    # For reliability, we send the body WITHOUT frontmatter and set metadata in JSON
     
-    # We'll use the metadata strategy #4 from instructions: metadata in JSON payload
-    # For this PoC, we'll parse the title and tags from the frontmatter manually
-    import yaml
-    frontmatter = yaml.safe_load(parts[1])
-    body = parts[2].strip()
-
     payload = {
         "article": {
-            "title": frontmatter.get("title", "Untitled Article"),
+            "title": "Autonomous Clinical Trial compliance: Solving Protocol Bottlenecks with AI Agents",
+            "body_markdown": content,
             "published": True,
-            "body_markdown": body,
-            "tags": frontmatter.get("tags", "").split(", "),
-            "main_image": frontmatter.get("cover_image", ""),
-            "description": frontmatter.get("description", "")
+            "tags": ["healthcare", "ai", "python", "automation"],
+            "main_image": "https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/title-animation.gif"
         }
     }
 
     url = "https://dev.to/api/articles"
     headers = {
-        "Content-Type": "application/json",
-        "api-key": DEVTO_API_KEY
+        "api-key": DEVTO_API_KEY,
+        "Content-Type": "application/json"
     }
 
+    print(f"Publishing {article_path} to Dev.to...")
     response = requests.post(url, headers=headers, data=json.dumps(payload))
-
+    
     if response.status_code == 201:
-        data = response.json()
-        print(f"Successfully published article!")
-        print(f"URL: {data['url']}")
+        print("Success! Article published.")
+        print(f"URL: {response.json().get('url')}")
     else:
-        print(f"Failed to publish article. Status code: {response.status_code}")
-        print(f"Response: {response.text}")
+        print(f"Failed to publish. Status: {response.status_code}")
+        print(response.text)
 
 if __name__ == "__main__":
-    publish_article()
+    publish_article("generated_article.md")

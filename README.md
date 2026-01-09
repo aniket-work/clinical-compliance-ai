@@ -13,9 +13,14 @@ By leveraging specialized AI agents, the system cross-references complex clinica
 3. **Statistical Risk Analysis**: Generation of data-driven insights with visual charts.
 4. **Automated Audit Reporting**: Synthesis of raw audit data into executive-level summaries.
 
-## System Architecture
+## System Architecture & Execution
 
 ![Architecture](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/architecture-flow.png)
+
+### Terminal Run
+I've implemented a detailed logging system to track agent collaboration in real-time. Here is a snapshot of the system in action:
+
+![Terminal Run](https://raw.githubusercontent.com/aniket-work/clinical-compliance-ai/main/images/terminal-run.png)
 
 ## Business Insights & Statistics
 
